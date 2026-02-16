@@ -108,6 +108,9 @@ func (tr *Tracker) WriteValue(v float64) error {
 	tr.readValueMu.Lock()
 	defer tr.readValueMu.Unlock()
 
+	tr.wg.Add(1)
+	defer tr.wg.Done()
+
 	_, finalAddr, err := tr.resolveAddress()
 	if err != nil {
 		return fmt.Errorf("resolve address: %w", err)
