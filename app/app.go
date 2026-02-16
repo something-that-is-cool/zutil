@@ -69,12 +69,12 @@ func (app *App) Run() error {
 			app.conf.Logger.Error("close app", "err", err.Error())
 		}
 	}()
-	go func() {
+	app.wg.Go(func() {
 		defer app.tr.Close() //nolint:errcheck
 		if err := app.tr.Run(app.ctx); err != nil {
 			_ = app.Close(false)
 		}
-	}()
+	})
 	app.win.ShowAndRun()
 	app.wg.Wait()
 	return nil
