@@ -1,4 +1,4 @@
-module github.com/k4ties/sensboost
+module github.com/something-that-is-cool/zutil
 
 go 1.25.5
 

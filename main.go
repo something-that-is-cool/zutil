@@ -10,8 +10,8 @@ import (
 	"syscall"
 
 	"github.com/go-vgo/robotgo"
-	"github.com/k4ties/sensboost/app"
-	"github.com/k4ties/sensboost/internal/misc"
+	"github.com/something-that-is-cool/zutil/app"
+	"github.com/something-that-is-cool/zutil/internal/misc"
 )
 
 var config = app.Config{

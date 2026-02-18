@@ -7,9 +7,9 @@ import (
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/container"
 	"fyne.io/fyne/v2/widget"
-	"github.com/k4ties/sensboost/app/module"
-	"github.com/k4ties/sensboost/app/module/modules"
-	"github.com/k4ties/sensboost/internal/pkg/win"
+	"github.com/something-that-is-cool/zutil/app/module"
+	"github.com/something-that-is-cool/zutil/app/module/modules"
+	"github.com/something-that-is-cool/zutil/internal/pkg/win"
 )
 
 var controllinURL = func() *url.URL {
@@ -22,7 +22,7 @@ var controllinURL = func() *url.URL {
 
 func (app *App) createContent(proc *win.Process) (fyne.CanvasObject, []module.Module, error) {
 	m := []module.Module{
-		app.createControllerSensBoostModule(proc),
+		app.createControllerSensitivityModule(proc),
 		app.createNoDynamicFovModule(proc),
 		app.createNoHurtCamModule(proc),
 	}
@@ -49,7 +49,7 @@ func (app *App) createFooter() fyne.CanvasObject {
 	)
 }
 
-func (app *App) createControllerSensBoostModule(proc *win.Process) module.Module {
+func (app *App) createControllerSensitivityModule(proc *win.Process) module.Module {
 	return (&modules.ControllerSensitivity{
 		Process: proc,
 		Error:   app.onError("controller_sensitivity"),

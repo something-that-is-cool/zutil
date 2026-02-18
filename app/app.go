@@ -9,8 +9,8 @@ import (
 
 	"fyne.io/fyne/v2"
 	fyneapp "fyne.io/fyne/v2/app"
-	"github.com/k4ties/sensboost/app/module"
-	"github.com/k4ties/sensboost/internal/pkg/win"
+	"github.com/something-that-is-cool/zutil/app/module"
+	"github.com/something-that-is-cool/zutil/internal/pkg/win"
 )
 
 type App struct {
@@ -39,7 +39,7 @@ func (app *App) init(proc *win.Process) ([]module.Module, error) {
 	defer app.winMu.Unlock()
 
 	app.app = fyneapp.New()
-	app.win = app.app.NewWindow("sensboost")
+	app.win = app.app.NewWindow("zutil")
 
 	app.win.SetMaster()
 	app.win.CenterOnScreen()

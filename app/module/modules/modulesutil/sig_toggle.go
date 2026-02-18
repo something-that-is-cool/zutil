@@ -5,7 +5,7 @@ import (
 
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/widget"
-	"github.com/k4ties/sensboost/internal/pkg/win"
+	"github.com/something-that-is-cool/zutil/internal/pkg/win"
 )
 
 type SigToggleModule struct {

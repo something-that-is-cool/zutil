@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"log/slog"
 
-	"github.com/k4ties/sensboost/internal/pkg/win"
+	"github.com/something-that-is-cool/zutil/internal/pkg/win"
 )
 
 type Config struct {

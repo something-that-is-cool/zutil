@@ -5,8 +5,8 @@ import (
 
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/widget"
-	"github.com/k4ties/sensboost/internal/pkg/fyneutil"
-	"github.com/k4ties/sensboost/internal/pkg/win"
+	"github.com/something-that-is-cool/zutil/internal/pkg/fyneutil"
+	"github.com/something-that-is-cool/zutil/internal/pkg/win"
 )
 
 type FloatPointerModule struct { // so float64 would be DoublePointerModule

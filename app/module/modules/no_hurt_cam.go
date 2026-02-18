@@ -1,9 +1,9 @@
 package modules
 
 import (
-	"github.com/k4ties/sensboost/app/module"
-	"github.com/k4ties/sensboost/app/module/modules/modulesutil"
-	"github.com/k4ties/sensboost/internal/pkg/win"
+	"github.com/something-that-is-cool/zutil/app/module"
+	"github.com/something-that-is-cool/zutil/app/module/modules/modulesutil"
+	"github.com/something-that-is-cool/zutil/internal/pkg/win"
 )
 
 var _ module.Module = (*noHurtCam)(nil)
