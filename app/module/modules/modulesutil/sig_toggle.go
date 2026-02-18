@@ -25,24 +25,16 @@ func (m *SigToggleModule) CreateObjects() []fyne.CanvasObject {
 }
 
 func (m *SigToggleModule) set(check *widget.Check) func(bool) {
-	return func(b bool) {
-		t, err := m.lazyToggler()
+	return CheckSet(m.Error, check, func(b bool, check *widget.Check) error {
+		toggler, err := m.lazyToggler()
 		if err != nil {
-			m.Error(fmt.Errorf("cannot get sig toggler: %w", err))
-			return
+			return fmt.Errorf("get sig toggler: %w", err)
 		}
-		if err = t.Set(b); err != nil {
-			m.Error(fmt.Errorf("cannot toggle: %w", err))
-			return
+		if err = toggler.Set(b); err != nil {
+			return fmt.Errorf("update sig toggler state: %w", err)
 		}
-		if b {
-			check.Text = "enabled"
-			check.Checked = true
-			return
-		}
-		check.Text = "disabled"
-		check.Checked = false
-	}
+		return nil
+	})
 }
 
 func (m *SigToggleModule) lazyToggler() (*win.SignatureNopToggler, error) {

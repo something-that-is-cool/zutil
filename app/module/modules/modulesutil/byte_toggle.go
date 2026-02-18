@@ -26,25 +26,16 @@ func (m *ByteToggleModule) CreateObjects() []fyne.CanvasObject {
 }
 
 func (m *ByteToggleModule) set(check *widget.Check) func(bool) {
-	return func(b bool) {
-		t, err := m.lazyToggler()
+	return CheckSet(m.Error, check, func(b bool, check *widget.Check) error {
+		toggler, err := m.lazyToggler()
 		if err != nil {
-			m.Error(fmt.Errorf("cannot get byte toggler: %w", err))
-			return
+			return fmt.Errorf("get byte toggler: %w", err)
 		}
-		if err = t.Set(b); err != nil {
-			m.Error(fmt.Errorf("cannot toggle: %w", err))
-			return
+		if err = toggler.Set(b); err != nil {
+			return fmt.Errorf("update byte toggler state: %w", err)
 		}
-		if b {
-			check.Text = "enabled"
-			check.Checked = true
-		} else {
-			check.Text = "disabled"
-			check.Checked = false
-		}
-		check.Refresh()
-	}
+		return nil
+	})
 }
 
 func (m *ByteToggleModule) lazyToggler() (*win.ByteToggler, error) {
