@@ -52,38 +52,38 @@ func (app *App) createFooter() fyne.CanvasObject {
 }
 
 func (app *App) createControllerSensitivityModule(proc *win.Process) module.Module {
-	return (&modules.ControllerSensitivity{
+	return modules.ControllerSensitivity{
 		Process: proc,
 		Error:   app.onError("controller_sensitivity"),
-	}).Create()
+	}.Create()
 }
 
 func (app *App) createNoDynamicFovModule(proc *win.Process) module.Module {
-	return (&modules.NoDynamicFov{
+	return modules.NoDynamicFov{
 		Process: proc,
 		Error:   app.onError("no_dynamic_fov"),
-	}).Create()
+	}.Create()
 }
 
 func (app *App) createNoHurtCamModule(proc *win.Process) module.Module {
-	return (&modules.NoHurtCam{
+	return modules.NoHurtCam{
 		Process: proc,
 		Error:   app.onError("no_hurt_cam"),
-	}).Create()
+	}.Create()
 }
 
 func (app *App) createAutoSprintModule(proc *win.Process) module.Module {
-	return (&modules.AutoSprint{
+	return modules.AutoSprint{
 		Process: proc,
 		Error:   app.onError("auto_sprint"),
-	}).Create()
+	}.Create()
 }
 
 func (app *App) createNoParticleModule(proc *win.Process) module.Module {
-	return (&modules.NoParticle{
+	return modules.NoParticle{
 		Process: proc,
 		Error:   app.onError("no_particle"),
-	}).Create()
+	}.Create()
 }
 
 func (app *App) onError(mod string) func(err error) {

@@ -8,3 +8,7 @@ type Module interface {
 	CreateObjects() []fyne.CanvasObject
 	Disable()
 }
+
+type Config interface {
+	Create() Module
+}

@@ -21,8 +21,7 @@ type ByteToggleModule struct {
 
 // CreateObjects ...
 func (m *ByteToggleModule) CreateObjects() []fyne.CanvasObject {
-	check := widget.NewCheck("", nil)
-	check.Text = "disabled"
+	check := widget.NewCheck(ToggleDisabled, nil)
 	check.OnChanged = m.set(check)
 	return []fyne.CanvasObject{check}
 }
